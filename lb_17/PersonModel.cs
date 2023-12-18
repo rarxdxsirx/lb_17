@@ -12,7 +12,7 @@ namespace lb_17
     {
         public string Name { get; set; } = String.Empty;
         public int Age { get; set; }
-        public string Position { get; set; }
+        public string Position { get; set; } = String.Empty;
         public string this[string columnName]
         {
             get
@@ -21,7 +21,7 @@ namespace lb_17
                 switch (columnName)
                 {
                     case "Age":
-                        if (Age < 0 || Age > 100)
+                        if (Age <= 0 || Age > 100)
                         {
                             error = "Возраст должен быть больше 0 и меньше 100";
                         }
@@ -33,6 +33,10 @@ namespace lb_17
                         }
                         break;
                     case "Position":
+                        if (Position.Equals(String.Empty) || !Regex.IsMatch(Position, @"^[а-яА-Я ]+$") || Regex.IsMatch(Position.Trim(), @"[ \t]{2,}"))
+                        {
+                            error = "Позиция должна содержать только русский язык и пробелы";
+                        }
                         break;
                 }
                 return error;

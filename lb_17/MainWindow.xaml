@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:lb_17"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Validation" Height="300" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -28,7 +28,7 @@
             </TextBox.Text>
         </TextBox>
         <TextBox Grid.Column="1" Grid.Row="1" Height="30" Margin="0 0 15 0" Name="AgeText">
-            <TextBox.Text>
+            <TextBox.Text> 
                 <Binding Path="Age">
                     <Binding.ValidationRules>
                         <DataErrorValidationRule/>
@@ -37,6 +37,13 @@
             </TextBox.Text>
         </TextBox>
         <TextBox Grid.Column="1" Grid.Row="2" Height="30" Margin="0 0 15 0">
+            <TextBox.Text>
+                <Binding Path="Position">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
         </TextBox>
 
         <Label Content="Введите имя" Height="30"/>
